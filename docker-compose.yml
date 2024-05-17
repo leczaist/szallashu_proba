@@ -1,0 +1,49 @@
+version: "1.0"
+
+networks:
+  app-network:
+
+services:
+  php-apache:
+    ports:
+      - "8080:80"
+    build: './build/php'
+    volumes:
+      - ./:/var/www/html
+    networks:
+        - app-network
+    links:
+        - mysql
+
+  mysql:
+    ports:
+      - "33060:3306"
+    build: './build/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: "szallashu"
+      MYSQL_PORT: 33060
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_USER: "szallashu"
+      MYSQL_DATABASE: "szallashu"
+      MYSQL_PASSWORD: "szallashu"
+    volumes:
+      - dbData:/var/lib/mysql
+    networks:
+      - app-network
+
+  phpmyadmin:
+    platform: linux/amd64
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    links:
+      - mysql
+    environment:
+      PMA_ARBITRARY: 1
+    restart: always
+    networks:
+        - app-network
+
+volumes:
+    dbData:
+        driver: local
