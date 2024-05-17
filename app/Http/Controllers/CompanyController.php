@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
+use App\Services\CompanyService;
 
 class CompanyController extends Controller
 {
+    /**
+     * @var CompanyService
+     */
+    private CompanyService $companyService;
+
+    /**
+     * CompanyController constructor.
+     */
+    public function __construct()
+    {
+        $this->companyService = new CompanyService();
+    }
+
     public function index()
     {
         return 'Company list method';
@@ -19,8 +33,7 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-        $company = new Company($request->validated());
-        $company->save();
+        $company = $this->companyService->create($request->validated());
 
         return $company;
     }
@@ -32,8 +45,7 @@ class CompanyController extends Controller
      */
     public function show($ids)
     {
-        return Company::whereIn('companyId', explode(',', $ids))
-            ->get();
+        return $this->companyService->getByIds(explode(',', $ids));
     }
 
     /**
@@ -44,9 +56,7 @@ class CompanyController extends Controller
      */
     public function update(Company $company, CompanyRequest $request)
     {
-        $company->update($request->validated());
-
-        return $company;
+        return $this->companyService->update($company, $request->validated());
     }
 
     public function destroy($id)
