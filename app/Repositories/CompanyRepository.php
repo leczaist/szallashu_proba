@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Contracts\CompanyRepositoryInterface;
 use App\Models\Company;
 
-class CompanyRepository
+class CompanyRepository implements CompanyRepositoryInterface
 {
     /**
      * @param array $validated
