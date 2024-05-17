@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "ebbb4cae-3bee-4d8a-a96d-33518564ba1d",
+		"name": "Szallashu_Proba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29277837"
+	},
+	"item": [
+		{
+			"name": "Add new company",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "companyName",
+							"value": "Test Ltd.",
+							"type": "text"
+						},
+						{
+							"key": "companyRegistrationNumber",
+							"value": "11234567890",
+							"type": "text"
+						},
+						{
+							"key": "companyFoundationDate",
+							"value": "2024-05-17",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Hungary",
+							"type": "text"
+						},
+						{
+							"key": "zipCode",
+							"value": "4400",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Nyíregyháza",
+							"type": "text"
+						},
+						{
+							"key": "streetAddress",
+							"value": "Street Str. 66",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "50.00",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "60.00",
+							"type": "text"
+						},
+						{
+							"key": "companyOwner",
+							"value": "Jakab Gipsz",
+							"type": "text"
+						},
+						{
+							"key": "employees",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "activity",
+							"value": "IT",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "fdsa@fdsa.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "alma123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get companies by IDs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companies/100,101,102,103",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies",
+						"100,101,102,103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update company by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "companyName",
+							"value": "Test Ltd.",
+							"type": "text"
+						},
+						{
+							"key": "companyRegistrationNumber",
+							"value": "11234567890",
+							"type": "text"
+						},
+						{
+							"key": "companyFoundationDate",
+							"value": "2024-05-17",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Hungary",
+							"type": "text"
+						},
+						{
+							"key": "zipCode",
+							"value": "4400",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Nyíregyháza",
+							"type": "text"
+						},
+						{
+							"key": "streetAddress",
+							"value": "Street Str. 66",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "50.00",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "60.00",
+							"type": "text"
+						},
+						{
+							"key": "companyOwner",
+							"value": "Jakab Gipsz",
+							"type": "text"
+						},
+						{
+							"key": "employees",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "activity",
+							"value": "IT",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "fdsa@fdsa.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "alma123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
